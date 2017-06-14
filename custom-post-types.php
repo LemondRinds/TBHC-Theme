@@ -22,7 +22,7 @@ abstract class CustomPostType{
 		                         # (see also objectsToHTML and toHTML methods)
 		$taxonomies     = array('post_tag'),
 		$built_in       = False,
-		$show_in_menu	= 'Custom Post Types',
+		$show_in_menu	= 'Custom Post Types'
 
 		# Optional default ordering for generic shortcode if not specified by user.
 		$default_orderby = null,
@@ -177,13 +177,17 @@ abstract class CustomPostType{
 			'supports'   => $this->supports(),
 			'public'     => $this->options('public'),
 			'taxonomies' => $this->options('taxonomies'),
-			'_builtin'   => $this->options('built_in')
+			'_builtin'   => $this->options('built_in'),
 		);
 
 		if ($this->options('use_order')){
 			$registration = array_merge($registration, array('hierarchical' => True,));
 		}
 
+		if($this->options('show_in_menu')){
+			$registration = array_merge($registration, array('show_in_menu' => $this->options('show_in_menu')));
+		}
+		
 		register_post_type($this->options('name'), $registration);
 
 		if ($this->options('use_shortcode')){
