@@ -821,7 +821,7 @@ function frontpage_scholarship_spotlight() {
 			</div>
 			<div class="clearfix"></div>
 		</section>
-		<!--<section id="search_scholarships">
+		<section id="search_scholarships">
 			<div id="search_scholarships_inner_wrap">
 				<div class="search_scholarships_title_wrap">
 					<h2 class="search_scholarships_title">
@@ -832,10 +832,15 @@ function frontpage_scholarship_spotlight() {
 					<?//echo do_shortcode('[spotlight-grid event_groups="scholarship-categories" dropdown=true dd_event_groups="scholarship-categories" short=true]')?>
 				</div>
 				<div id="search_scholarships_right">
-					A search box?
+					<form action="/" method="get">
+						<label for="search">Search in <?php echo home_url( '/' ); ?></label>
+						<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
+						<input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />
+						<input type="hidden" value="post" name="spotlight" id="spotlight" />
+					</form>
 				</div>
 			</div>
-		</section>-->
+		</section>
 		<section id="scholarship_spotlight">
 			<div id="scholarship_spotlight_inner_wrap">
 				<div id="scholarship_spotlight_left" class="hidden-sm hidden-xs">
