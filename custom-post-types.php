@@ -177,7 +177,7 @@ abstract class CustomPostType{
 			'public'     => $this->options('public'),
 			'taxonomies' => $this->options('taxonomies'),
 			'_builtin'   => $this->options('built_in'),
-			'show_in_menu'	=> 'edit.php',
+			'show_in_menu'	=> 'tools.php',
 		);
 
 		if ($this->options('use_order')){
