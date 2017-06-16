@@ -247,6 +247,19 @@ abstract class CustomPostType{
 		$html = '<a href="'.get_permalink($object->ID).'">'.$object->post_title.'</a>';
 		return $html;
 	}
+	
+	
+	// remove posts sub menu items
+	add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
+	function adjust_the_wp_menu() {
+	  $page = remove_submenu_page( 'edit.php', 'post-new.php' );
+	  $page = remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' );
+	  $page = remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
+	  // $page[0] is the menu title
+	  // $page[1] is the minimum level or capability required
+	  // $page[2] is the URL to the item's file
+	}
+	
 }
 
 
