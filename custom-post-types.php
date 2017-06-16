@@ -22,7 +22,6 @@ abstract class CustomPostType{
 		                         # (see also objectsToHTML and toHTML methods)
 		$taxonomies     = array('post_tag'),
 		$built_in       = False,
-		$show_in_menu	= 'edit.php',
 
 		# Optional default ordering for generic shortcode if not specified by user.
 		$default_orderby = null,
@@ -258,7 +257,8 @@ class Document extends CustomPostType{
 		$use_title      = True,
 		$use_editor     = False,
 		$use_shortcode  = True,
-		$use_metabox    = True;
+		$use_metabox    = True,
+		$show_in_menu	= 'edit.php';
 
 	public function fields(){
 		$fields   = parent::fields();
