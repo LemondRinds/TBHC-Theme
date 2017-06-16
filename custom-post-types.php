@@ -184,7 +184,7 @@ abstract class CustomPostType{
 		}
 
 		if(!($this->options('built_in'))){
-			$registration = array_merge($registration, array('show_in_menu' => 'edit.php?post_type=post',));
+			$registration = array_merge($registration, array('show_in_menu' => 'edit.php',));
 		}
 		
 		register_post_type($this->options('name'), $registration);
