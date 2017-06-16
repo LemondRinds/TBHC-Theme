@@ -176,7 +176,8 @@ abstract class CustomPostType{
 			'supports'   => $this->supports(),
 			'public'     => $this->options('public'),
 			'taxonomies' => $this->options('taxonomies'),
-			'_builtin'   => $this->options('built_in')
+			'_builtin'   => $this->options('built_in'),
+			'show_in_menu'	=> 'edit.php',
 		);
 
 		if ($this->options('use_order')){
@@ -257,8 +258,7 @@ class Document extends CustomPostType{
 		$use_title      = True,
 		$use_editor     = False,
 		$use_shortcode  = True,
-		$use_metabox    = True,
-		$show_in_menu	= 'edit.php';
+		$use_metabox    = True;
 
 	public function fields(){
 		$fields   = parent::fields();
