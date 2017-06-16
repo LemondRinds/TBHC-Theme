@@ -177,13 +177,16 @@ abstract class CustomPostType{
 			'public'     => $this->options('public'),
 			'taxonomies' => $this->options('taxonomies'),
 			'_builtin'   => $this->options('built_in'),
-			'show_in_menu'	=> 'edit.php?post_type=post',
 		);
 
 		if ($this->options('use_order')){
 			$registration = array_merge($registration, array('hierarchical' => True,));
 		}
 
+		if(!($this->options('built_in'))){
+			$registration = array_merge($registration, array('show_in_menu' => 'edit.php?post_type=post',));
+		}
+		
 		register_post_type($this->options('name'), $registration);
 
 		if ($this->options('use_shortcode')){
