@@ -22,7 +22,6 @@ abstract class CustomPostType{
 		                         # (see also objectsToHTML and toHTML methods)
 		$taxonomies     = array('post_tag'),
 		$built_in       = False,
-		$show_in_menu	= 'Custom Post Types'
 
 		# Optional default ordering for generic shortcode if not specified by user.
 		$default_orderby = null,
@@ -184,8 +183,8 @@ abstract class CustomPostType{
 			$registration = array_merge($registration, array('hierarchical' => True,));
 		}
 
-		if($this->options('show_in_menu')){
-			$registration = array_merge($registration, array('show_in_menu' => $this->options('show_in_menu')));
+		if($this->options('built_in')){
+			$registration = array_merge($registration, array('show_in_menu' => 'edit.php'));
 		}
 		
 		register_post_type($this->options('name'), $registration);
