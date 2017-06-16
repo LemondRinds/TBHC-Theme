@@ -2562,17 +2562,5 @@ function get_document_attatchment_permalink($results) {
 }
 add_filter( 'wp_link_query', 'get_document_attatchment_permalink', 10, 3 );
 
-// remove posts sub menu items
-add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
-function adjust_the_wp_menu() {
-	$page = remove_submenu_page( 'edit.php', 'post-new.php' );
-	$page = remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' );
-	$page = remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-	// $page[0] is the menu title
-	// $page[1] is the minimum level or capability required
-	// $page[2] is the URL to the item's file
-}
-
-
 ?>
 
