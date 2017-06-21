@@ -829,7 +829,7 @@ function frontpage_scholarship_spotlight() {
 					</h2>
 				</div>
 				<div id="search_scholarships_left">
-					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
+					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="post">
 					<?
 						$EGID			= get_term_by('slug', 'scholarship-category', 'event_groups')->term_id;
 						$args = array(
@@ -854,7 +854,7 @@ function frontpage_scholarship_spotlight() {
 					</form>
 				</div>
 				<div id="search_scholarships_right">
-					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
+					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="post">
 						<label for="search">Search</label>
 						<input type="text" name="qry" id="search" value="" />
 						<input type="hidden" name="qryType" value="scholarship" />

@@ -670,9 +670,9 @@ function sc_spotlight_grid($atts) {
 	$EGID2			= $EGID2 ? $EGID2->term_id : false;
 	$operator		= ($atts['operator']) ? $atts['operator'] : NULL;
 	$short			= ($atts['short']) ? $atts['short'] : FALSE;
-	$qry			= sanitize_text_field($_GET['qry']);
-	$cat			= sanitize_text_field($_GET['cat']);
-	$qryType		= sanitize_text_field($_GET['qryType']);
+	$qry			= sanitize_text_field($_POST['qry']);
+	$cat			= sanitize_text_field($_POST['cat']);
+	$qryType		= sanitize_text_field($_POST['qryType']);
 	
 	print_r($cat);
 	
