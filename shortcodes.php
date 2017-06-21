@@ -677,7 +677,7 @@ function sc_spotlight_grid($atts) {
 		$spots 		= get_posts(
 			array( 
 				'numberposts' => -1, 
-				'post_type' => $qryType,
+				'post_type' => "spotlight",
 				's' => $qry,
 			)
 		);
