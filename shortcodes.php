@@ -671,7 +671,7 @@ function sc_spotlight_grid($atts) {
 	$operator		= ($atts['operator']) ? $atts['operator'] : NULL;
 	$short			= ($atts['short']) ? $atts['short'] : FALSE;
 	
-	print_r($_GET['s']);
+	print_r(isset($_GET['s']) ? $_GET['s'] : 'no query param');
 	$spots 		= sc_object_list(
 		array(
 			'type' => 'spotlight',
