@@ -677,7 +677,7 @@ function sc_spotlight_grid($atts) {
 	print_r($cat);
 	print_r($qryType);
 	
-	if(isset($qry) && isset($qryType) && $qryType == "scholarship"){
+	if(isset($qry) && !empty($qry) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){
 		print('\nEntering srch override\n');
 		$spots 		= get_posts(
 			array( 
@@ -686,7 +686,7 @@ function sc_spotlight_grid($atts) {
 				's' => $qry,
 			)
 		);
-	}else if(isset($cat) && isset($qryType) && $qryType == "scholarship"){ 
+	}else if(isset($cat) &&  !empty($cat) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){ 
 		print('\nEntering dd override\n');
 		$spots 		= sc_object_list(
 			array(
