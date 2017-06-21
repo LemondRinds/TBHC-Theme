@@ -673,11 +673,6 @@ function sc_spotlight_grid($atts) {
 	$qry			= sanitize_text_field($_GET['qry']);
 	$qryType		= sanitize_text_field($_GET['qryType']);
 	
-			print_r(isset($qry));
-			print_r(isset($qryType));
-			print_r($qry);
-			print_r($qryType);
-	
 	if(isset($qry) && isset($qryType) && $qryType == "scholarship"){
 		$spots 		= get_posts(
 			array( 
@@ -686,7 +681,6 @@ function sc_spotlight_grid($atts) {
 				's' => $qry,
 			)
 		);
-		print_r($spots);
 	}else{
 		$spots 		= sc_object_list(
 			array(

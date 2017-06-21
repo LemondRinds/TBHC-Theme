@@ -829,14 +829,35 @@ function frontpage_scholarship_spotlight() {
 					</h2>
 				</div>
 				<div id="search_scholarships_left">
-					<?//echo do_shortcode('[spotlight-grid event_groups="scholarship-categories" dropdown=true dd_event_groups="scholarship-categories" short=true]')?>
+					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
+					<?
+						$EGID			= get_term_by('slug', 'scholarship-category', 'event_groups')->term_id;
+						$args = array(
+							'taxonomy'	=>	'event_groups',
+							'value_field'	=>	'slug',
+							'class'	=>	'spotlight-grid-dropdown form-control',
+							'id'	=>	'dd_event_groups',
+							'name'	=>	'dd_event_groups',
+							'echo'	=> false,
+							'show_option_none' => 'Select a Category',
+							'child_of'	=>	$EGID,
+						);
+						$wp1Args = wp_dropdown_categories($args);
+						rsort($wp1Args);
+						echo str_replace(
+							'<select',
+							'<select onchange="this.form.submit();"',
+							$wp1Args
+						);
+					?>
+					</form>
 				</div>
 				<div id="search_scholarships_right">
 					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
 						<label for="search">Search</label>
 						<input type="text" name="qry" id="search" value="" />
 						<input type="hidden" name="qryType" value="scholarship" />
-						<input type="submit" id="scholarship-search-submit" value=""/>
+						<input type="submit" id="scholarship-search-submit" value="Submit"/>
 					</form>
 				</div>
 			</div>
