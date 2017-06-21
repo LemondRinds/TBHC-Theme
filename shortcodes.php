@@ -683,11 +683,12 @@ function sc_spotlight_grid($atts) {
 			)
 		);
 	}else{
-		print_r(isset($cat));
-		print_r(isset($qryType));
-		print_r($qryType);
+		print_r('/ncat set? '.isset($cat));
+		print_r('/nqryType set? '.isset($qryType));
+		print_r('/nqryType '.$qryType);
 		
 		if(isset($cat) && isset($qryType) && $qryType == "scholarship"){ $event_groups = $dd_event_groups = $cat; print_r('event_groups is now '.$cat); }
+		
 		$spots 		= sc_object_list(
 			array(
 				'type' => 'spotlight',
