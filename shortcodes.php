@@ -671,6 +671,7 @@ function sc_spotlight_grid($atts) {
 	$operator		= ($atts['operator']) ? $atts['operator'] : NULL;
 	$short			= ($atts['short']) ? $atts['short'] : FALSE;
 	$qry			= sanitize_text_field($_GET['qry']);
+	$cat			= sanitize_text_field($_GET['cat']);
 	$qryType		= sanitize_text_field($_GET['qryType']);
 	
 	if(isset($qry) && isset($qryType) && $qryType == "scholarship"){
@@ -682,6 +683,7 @@ function sc_spotlight_grid($atts) {
 			)
 		);
 	}else{
+		if(isset($cat) && isset($qryType) && $qryType == "scholarship"){ $event_groups = $cat; }
 		$spots 		= sc_object_list(
 			array(
 				'type' => 'spotlight',

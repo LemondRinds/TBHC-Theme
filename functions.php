@@ -836,8 +836,8 @@ function frontpage_scholarship_spotlight() {
 							'taxonomy'	=>	'event_groups',
 							'value_field'	=>	'slug',
 							'class'	=>	'spotlight-grid-dropdown form-control',
-							'id'	=>	'dd_event_groups',
-							'name'	=>	'dd_event_groups',
+							'id'	=>	'cat',
+							'name'	=>	'cat',
 							'echo'	=> false,
 							'show_option_none' => 'Select a Category',
 							'child_of'	=>	$EGID,
@@ -850,6 +850,7 @@ function frontpage_scholarship_spotlight() {
 							$wp1Args
 						);
 					?>
+						<input type="hidden" name="qryType" value="scholarship" />
 					</form>
 				</div>
 				<div id="search_scholarships_right">
