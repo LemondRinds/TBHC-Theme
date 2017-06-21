@@ -1,7 +1,7 @@
 <?php @header("HTTP/1.1 404 Not found", true, 404);?>
 <?php //disallow_direct_load('404.php');?>
 <?php if(strpos(home_url( add_query_arg( NULL, NULL ) ), 'wp-login') === 0 && strpos(get_site_url(), 'qa') === 0){ wp_mail(array(get_theme_option('bad_url_email_group')), '404 "'.home_url( add_query_arg( NULL, NULL ) ).'"','The page "'.home_url( add_query_arg( NULL, NULL ) ).'" referred to from '.(wp_get_referer() ? '"'.wp_get_referer().'"' : '"within the page or an undisclosed referrer"').' returned a 404.'); } ?>
-<?php get_header(); the_post();?>
+<?php print_r(get_theme_option('bad_url_email_group')); get_header(); the_post();?>
 	<div class="row page-content" id="page-not-found">
 		<div id="contentcol" class="col-md-12 col-sm-12">
 			<article role="main">
