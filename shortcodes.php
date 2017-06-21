@@ -670,33 +670,42 @@ function sc_spotlight_grid($atts) {
 	$EGID2			= $EGID2 ? $EGID2->term_id : false;
 	$operator		= ($atts['operator']) ? $atts['operator'] : NULL;
 	$short			= ($atts['short']) ? $atts['short'] : FALSE;
+	$qry			= sanitize_text_field(get_query_var('qry'));
+	$qryType		= sanitize_text_field(get_query_var('qryType'));
 	
-	print_r(isset($_GET['qry']) ? $_GET['qry'] : 'no query param');
-
-		
-	$spots 		= sc_object_list(
-		array(
-			'type' => 'spotlight',
-			'limit' => $limit,
-			'join' => $join,
-			'categories' => $categories,
-			'event_groups' => $event_groups2 ? $event_groups.' '.$event_groups2 : $event_groups,
-			'orderby' => 'meta_value_num',
-			'order' => 'DESC',
-			'meta_key'	=> get_theme_option('home_page_theme') == '2' ? '' : 'spotlight_end',
-			'operator' => $operator,
-			'meta_query'	=> get_theme_option('home_page_theme') == '2' ? '' : array(
-				array(
-					'key'	=>	'spotlight_start',
-					'value'	=>	date('Ymd'),
-					'compare'	=>	'<=',				
+	if(isset($qry) && isset($qryType) && $qryType == "scholarship"){
+		$spots 		= get_posts(
+			array( 
+				'numberposts' => -1, 
+				'post_type' => $qryType,
+				's' => $qry,
+			)
+		);
+	}else{
+		$spots 		= sc_object_list(
+			array(
+				'type' => 'spotlight',
+				'limit' => $limit,
+				'join' => $join,
+				'categories' => $categories,
+				'event_groups' => $event_groups2 ? $event_groups.' '.$event_groups2 : $event_groups,
+				'orderby' => 'meta_value_num',
+				'order' => 'DESC',
+				'meta_key'	=> get_theme_option('home_page_theme') == '2' ? '' : 'spotlight_end',
+				'operator' => $operator,
+				'meta_query'	=> get_theme_option('home_page_theme') == '2' ? '' : array(
+					array(
+						'key'	=>	'spotlight_start',
+						'value'	=>	date('Ymd'),
+						'compare'	=>	'<=',				
+					),
 				),
 			),
-		),
-		array(
-		'objects_only' => True,
-		)
-	);
+			array(
+			'objects_only' => True,
+			)
+		);
+	}
 	if(get_theme_option('home_page_theme') != '2'){
 		usort($spots, function($a, $b){
 			$a_dt = new DateTime(get_post_meta($a->ID, 'spotlight_end', TRUE));

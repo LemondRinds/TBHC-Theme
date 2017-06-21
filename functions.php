@@ -835,6 +835,7 @@ function frontpage_scholarship_spotlight() {
 					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
 						<label for="search">Search</label>
 						<input type="text" name="qry" id="search" value="" />
+						<input type="hidden" name="qryType" value="scholarship" />
 						<input type="submit" id="scholarship-search-submit" value=""/>
 					</form>
 				</div>
