@@ -832,7 +832,7 @@ function frontpage_scholarship_spotlight() {
 					<?//echo do_shortcode('[spotlight-grid event_groups="scholarship-categories" dropdown=true dd_event_groups="scholarship-categories" short=true]')?>
 				</div>
 				<div id="search_scholarships_right">
-					<form action="/" method="get">
+					<form action="/scholarships-fellowships/award-descriptions-deadlines/" method="get">
 						<label for="search">Search</label>
 						<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
 						<input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />

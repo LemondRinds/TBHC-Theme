@@ -670,6 +670,8 @@ function sc_spotlight_grid($atts) {
 	$EGID2			= $EGID2 ? $EGID2->term_id : false;
 	$operator		= ($atts['operator']) ? $atts['operator'] : NULL;
 	$short			= ($atts['short']) ? $atts['short'] : FALSE;
+	
+	print_r(_GET['s']);
 	$spots 		= sc_object_list(
 		array(
 			'type' => 'spotlight',
