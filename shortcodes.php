@@ -687,7 +687,7 @@ function sc_spotlight_grid($atts) {
 			)
 		);
 	}else{
-		if(isset($cat) &&  !empty($cat) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){ $event_groups = $dd_event_groups = $cat; print('\nEntering dd override\n'); }
+		if(isset($cat) &&  !empty($cat) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){ $event_groups = $cat; print('\nEntering dd override\n'); }
 		$spots 		= sc_object_list(
 			array(
 				'type' => 'spotlight',
