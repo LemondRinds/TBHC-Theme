@@ -686,32 +686,8 @@ function sc_spotlight_grid($atts) {
 				's' => $qry,
 			)
 		);
-	}else if(isset($cat) &&  !empty($cat) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){ 
-		print('\nEntering dd override\n');
-		$spots 		= sc_object_list(
-			array(
-				'type' => 'spotlight',
-				'limit' => $limit,
-				'join' => $join,
-				'categories' => $categories,
-				'event_groups' => $cat,
-				'orderby' => 'meta_value_num',
-				'order' => 'DESC',
-				'meta_key'	=> get_theme_option('home_page_theme') == '2' ? '' : 'spotlight_end',
-				'operator' => $operator,
-				'meta_query'	=> get_theme_option('home_page_theme') == '2' ? '' : array(
-					array(
-						'key'	=>	'spotlight_start',
-						'value'	=>	date('Ymd'),
-						'compare'	=>	'<=',				
-					),
-				),
-			),
-			array(
-			'objects_only' => True,
-			)
-		);
 	}else{
+		if(isset($cat) &&  !empty($cat) && isset($qryType) && !empty($qryType) && $qryType == "scholarship"){ $event_groups = $dd_event_groups = $cat; print('\nEntering dd override\n'); }
 		$spots 		= sc_object_list(
 			array(
 				'type' => 'spotlight',
