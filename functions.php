@@ -835,7 +835,7 @@ function frontpage_scholarship_spotlight() {
 					<form action="/scholarships-fellowships/award-descriptions-deadlines" method="get">
 						<label for="search">Search</label>
 						<input type="text" name="qry" id="search" value="" />
-						<input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />
+						<input type="submit" id="scholarship-search-submit" value=""/>
 					</form>
 				</div>
 			</div>
