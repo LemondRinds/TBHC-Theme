@@ -675,8 +675,10 @@ function sc_spotlight_grid($atts) {
 	$qryType		= sanitize_text_field($_POST['qryType']);
 	
 	print_r($cat);
+	print_r($qryType);
 	
 	if(isset($qry) && isset($qryType) && $qryType == "scholarship"){
+		print('\nEntering srch override\n');
 		$spots 		= get_posts(
 			array( 
 				'numberposts' => -1, 
