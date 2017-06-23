@@ -2589,5 +2589,33 @@ function get_document_attatchment_permalink($results) {
 }
 add_filter( 'wp_link_query', 'get_document_attatchment_permalink', 10, 3 );
 
+// require alt text popup
+// https://wordpress.stackexchange.com/a/56147
+add_action('admin_head-media-upload-popup','wpse_55240_required_alt_text');
+function wpse_55240_required_alt_text()
+{
+    ?>
+    <script language="javascript" type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".submit .savesend input").live("click", validateAltText);
+
+            function validateAltText() {
+                var value = $(this).parent().parent().parent().find(".image_alt input").val();
+
+                if (value) 
+                    return true;
+
+                alert("Please fill the Alt text");
+                return false;
+            }
+
+            $('.image_alt th label').each(function(i,e) {
+                $('<span class="alignright"><abbr title="required" class="required">*</abbr></span>').prependTo(this);
+            });
+
+        });
+    </script>
+<?php
+}
 ?>
 
